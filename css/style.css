@@ -94,6 +94,7 @@ a:hover {
   grid-template-columns: 200px 1fr;
   gap: 48px;
   align-items: start;
+  container-type: inline-size;
 }
 
 @media (max-width: 720px) {
@@ -105,8 +106,14 @@ a:hover {
 
 /* ===== Tags Sidebar ===== */
 .tag-sidebar {
-  position: sticky;
-  top: 24px;
+  position: static;
+}
+
+@container (min-width: 700px) {
+  .tag-sidebar {
+    position: sticky;
+    top: 24px;
+  }
 }
 
 .tag-sidebar h2 {
@@ -275,6 +282,15 @@ a:hover {
 .post-content {
   font-size: 1rem;
   line-height: 1.8;
+}
+
+.post-content .table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.post-content .table-scroll table {
+  width: max-content;
+  min-width: 100%;
 }
 
 .post-content p {
